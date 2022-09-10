@@ -4,9 +4,67 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boston House Prediction</title>
+    <title>Boston House Prediction (ML API)</title>
+    <style>
+        body{
+    box-sizing: border-box;
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: aquamarine;
+}
+
+.form_input{
+    justify-content:space-between;
+    display: flex;
+    flex-wrap: wrap;
+}
+input{
+    padding: 10px;
+    margin: 15px;
+    height: 30px;
+    width: 22vw;
+}
+.btn,.predicted_Price{
+    text-align: center;
+    padding: 5px;
+    width: auto;
+    height: 30px;
+}
+    </style>
 </head>
 <body>
-    <h1>Hello World</h1>
+    <div class="login">
+        <h1>Boston House Price Prediction</h1>
+
+        <form action="{{url_for('predict')}}"method= "post">
+            <div class="form_input">
+            <input type="text" name = "CRIM" placeholder= "per capita Crime-rate" required = "required" /><br>
+            <input type="text" name = "ZN" placeholder= "residental-zone over 25k sq.ft. " required = "required" /><br>
+            <input type="text" name = "INDUS" placeholder= "portion of non-retain business acres" required = "required" /><br>
+            <input type="text" name = "CHAS" placeholder= "charles river (0 or 1)" required = "required" /><br>
+            <input type="text" name = "NOX" placeholder= "Nitrous Oxide Concentration" required = "required" /><br>
+            <input type="text" name = "RM" placeholder= "Avg. No. of room" required = "required" /><br>
+            <input type="text" name = "AGE" placeholder= "Age of the housew was built" required = "required" /><br>
+            <input type="text" name = "DIS" placeholder= "weighted distances to five Boston employment centres" required = "required" /><br>
+            <input type="text" name = "RAD" placeholder= "index of accessibility to radial highways" required = "required" /><br>
+            <input type="text" name = "TAX" placeholder= "property-tax rate per $10,000" required = "required" /><br>
+            <input type="text" name = "PTRATIO" placeholder= "pupil-teacher ratio by town" required = "required" /><br>
+            <input type="text" name = "B" placeholder= "proportion of black people by town" required = "required" /><br>
+            <input type="text" name = "LSTAT" placeholder= "% lower status of the population" required = "required" /><br>
+            </div>
+            <div class="btn">
+                
+            <button type = "submit" class="btn btn-primary btn-block btn-large">Pridict</button>
+            </div>
+
+        </form>
+
+        <br><br>
+    </div>
+    <div class="predicted_Price">
+        {{prediction_text}}
+    </div>
 </body>
 </html>
